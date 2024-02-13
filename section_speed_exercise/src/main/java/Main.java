@@ -1,34 +1,30 @@
-import model.Vehicle;
-import util.ReadFileUtil;
+import util.ExerciseUtil;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-    public static final ReadFileUtil readFileUtil = new ReadFileUtil();
 
-    public static void main(String[] args) {
+    public static final ExerciseUtil readFileUtil = new ExerciseUtil();
+    public static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+
+        System.out.println("Exercise 2 \n The data of " + readFileUtil.extractDataFromInputFileAndStoreInList().size()
+                + " vehicles were recorded in the measurement.\n");
+
+        System.out.println("Exercise 3 \n Before 9'o clock " + readFileUtil.exercise3VehiclesPassedBefore9()
+                + " vehicles passed the exit point recorder.\n");
+
+        System.out.println("Exercise 4 \n Enter an hour and minute value: ");
+        String userInput = readFileUtil.exercise4UserInput(scanner.nextLine());
+        System.out.println(userInput);
+
+        System.out.println(readFileUtil.exercise5AverageSpeed());
+
+        readFileUtil.writeResultsToFile(userInput);
 
     }
 
-
-    public static List<Vehicle> exercise1ReadAndStoreData() {
-        return readFileUtil.storeDataIntoList();
-    }
-
-    public static void exercise2ShowRecorderVehicles() {
-        System.out.println("Exercise 2. \n" + "The data of " + readFileUtil.storeDataIntoList().size() + " vehicles were recorded in the measurement");
-    }
-
-    public static void exercise3vehiclesPassedExitPointBefore9() {
-        int count = 0;
-        List<Vehicle> vehicles = readFileUtil.storeDataIntoList();
-
-        for (Vehicle inList : vehicles) {
-            if(inList.getExitTime().startsWith("8")) {
-                count++;
-            }
-        }
-        System.out.println("Exercise 3. \n Before 9 o'clock " + count + " vehicles passed the exit point recorder");
-    }
 
 }
