@@ -1,0 +1,24 @@
+POST http://localhost:8080/api/v1/vehicles/addVehicle
+Content-Type: application/json
+
+{
+  "licensePlate": "12345",
+  "exitTime": "08:07:00",
+  "entryTime": "08:20:00",
+  "averageSpeed": 90
+}
+
+###
+GET {{host}}/api/v1/vehicles/getVehicles
+Accept: application/json
+
+###
+DELETE {{host}}/api/v1/vehicles/delete/1
+
+###
+GET {{host}}/api/v1/vehicles/getVehiclesForPeriod?hour=08&minute=20
+Accept: application/json
+
+###
+GET {{host}}/api/v1/vehicles/getVehiclesAboveSpeedLimit
+Accept: application/json
